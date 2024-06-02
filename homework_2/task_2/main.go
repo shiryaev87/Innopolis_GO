@@ -1,10 +1,3 @@
-package main
-
-import (
-	"fmt"
-	"sort"
-)
-
 /*
  2. Подсчет голосов.
 
@@ -19,6 +12,12 @@ import (
 		Votes int
 	}
 */
+package main
+
+import (
+	"fmt"
+	"sort"
+)
 
 type Candidate struct {
 	Name  string
