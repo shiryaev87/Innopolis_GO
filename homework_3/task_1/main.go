@@ -1,3 +1,13 @@
+/*
+MessageFormatter
+Реализуйте интерфейс Formatter
+С методом Format,
+Который возвращает отформатированную строку.
+Определите структуры, удовлетворяющие интерфейсу
+Formatter: обычный текст(какесть), жирным шрифтом(****), код(“), курсив(__)
+Опционально: иметь возможность задавать цепочку модификаторов
+chainFormatter.AddFormatter(plainText) chainFormatter.AddFormatter(bold) chainFormatter.AddFormatter(code)
+*/
 package main
 
 import (
@@ -60,19 +70,32 @@ func (cf *ChainFormatter) Format(text string) string {
 }
 
 func main() {
+	//var bold_1 = BoldText{}
+	inputText := "Да пребудет с тобой сила."
 	plainText := PlainText{}
-	bold := BoldText{}
-	code := CodeText{}
-	italic := ItalicText{}
+	fmt.Printf("Неотформатированный текст: %s\n", plainText.Format(inputText))
 
+	bold := BoldText{}
+	fmt.Printf("Отформатированный жирный текст: %s\n", bold.Format(inputText))
+
+	code := CodeText{}
+	fmt.Printf("Отформатированный текст в виде кода: %s\n", code.Format(inputText))
+
+	italic := ItalicText{}
+	fmt.Printf("Отформатированный курсивный текст: %s\n", italic.Format(inputText))
+	fmt.Println()
 	// Пример использования ChainFormatter
+	//объявляем цепочку форматирования
+
+	fmt.Printf("Пример работы отформатированной цепочки\n")
 	chainFormatter := ChainFormatter{}
+	//добавляем в цепочку форматы
 	chainFormatter.AddFormatter(plainText)
 	chainFormatter.AddFormatter(bold)
 	chainFormatter.AddFormatter(code)
 	chainFormatter.AddFormatter(italic)
 
-	input := "Hello, world!"
-	output := chainFormatter.Format(input)
-	fmt.Println(output) // Ожидаемый результат: _`**Hello, world!**`_
+	//вызываем метод для обработки цепочки форматирования
+	output := chainFormatter.Format(inputText)
+	fmt.Println(output)
 }
