@@ -19,7 +19,7 @@ func main() {
 	var count_positive_answers int = 0
 
 	// Определение флага для имени файла
-	fileFlag := flag.String("file", "task_1/problems.csv", "Укажите путь к файлу с вопросами")
+	fileFlag := flag.String("file", "01-goroutine/problems.csv", "Укажите путь к файлу с вопросами")
 
 	//Определение флага перемешивания вопросов
 	shuffleFlag := flag.Bool("shuffle", false, "Флаг перемешивания вопросов")
