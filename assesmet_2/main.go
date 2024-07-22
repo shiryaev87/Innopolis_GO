@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"strconv"
 )
 
@@ -35,10 +34,12 @@ func calcUserGrade(matrix [][]int, userAnswer []int) int {
 		from := userAnswer[i]
 		to := userAnswer[i+1]
 
-		if matrix[from][to] == 0 {
-			log.Fatalf("Нет пути между вершинами %d и %d", from, to)
-		}
+		//Проверка, чтомжду узлами нет ребра.
 
+		/*	if matrix[from][to] == 0 {
+				log.Fatalf("Нет пути между вершинами %d и %d", from, to)
+			}
+		*/
 		totalLength += matrix[from][to]
 	}
 
@@ -124,7 +125,7 @@ func main() {
 
 	// Пример пути (в порядке прохождения вершин)
 
-	userAnswer := []int{0, 4, 7, 7}
+	userAnswer := []int{1, 2, 6, 3}
 
 	isValidMatrix, errMatrix := checkValidMatrix(graph)
 	isValidUserAnswer, errUserAnswer := checkValidUserAnswer(userAnswer, len(graph))
